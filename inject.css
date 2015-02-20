@@ -1,0 +1,166 @@
+.worddefinition-popup {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 10000;
+  text-align: left;
+  font-family: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  color: black;
+}
+.worddefinition-popup * {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  width: auto;
+  height: auto;
+  background: none transparent;
+  text-align: left;
+  vertical-align: baseline;
+  text-indent: 0px;
+  position: static;
+  box-sizing: content-box;
+}
+
+.worddefinition-popup-body {
+  border-radius: 5px;
+  border: 2px solid rgb(144, 144, 144);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px;
+  //background: linear-gradient(to bottom, rgb(252, 252, 252) 0%, rgb(245, 245, 245) 33%, rgb(245, 245, 245) 100%);
+  background: rgb(250, 250, 250);
+}
+
+.worddefinition-popup-tip {
+  display: inline-block;
+  width: 12px;
+  height: 9px;
+  background: none 0px 0px no-repeat transparent;
+}
+.worddefinition-popup-tip-up {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/tip-up.png");
+  margin-bottom: -2px;
+  //vertical-align: bottom;
+}
+.worddefinition-popup-tip-down {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/tip-down.png");
+  margin-top: -2px;
+  //vertical-align: top;
+}
+
+.worddefinition-popup-links-row {
+  white-space: nowrap;
+  margin: 4px 2px;
+}
+.worddefinition-popup-link {
+  margin: 0px 2px;
+}
+.worddefinition-popup-link-icon {
+  //vertical-align: middle;
+  width: 16px;
+  height: 16px;
+}
+
+.worddefinition-detailed-popup {
+  width: 360px;
+}
+
+.worddefinition-detailed-popup .worddefinition-popup-body {
+  padding: 6px 0;
+  line-height: 1.4;
+}
+
+.worddefinition-detailed-popup-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.worddefinition-detailed-popup-phonetic {
+  margin-left: 7px;
+  color: rgba(200, 80, 0, 0.8);
+}
+.worddefinition-detailed-popup-source {
+  float: right;
+  margin-top: 2px;
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+}
+.worddefinition-detailed-popup-pattern {
+  margin-left: 10px;
+}
+
+.worddefinition-detailed-popup-item {
+  margin-top: 6px;
+}
+.worddefinition-detailed-popup-def {
+  background-color: #eff5f8;
+  padding: 5px 10px;
+}
+.worddefinition-detailed-popup-def-with-index {
+  padding-left: 25px;
+}
+.worddefinition-detailed-popup-example {
+  margin: 3px 10px;
+  margin-left: 25px;
+}
+
+.worddefinition-detailed-popup-additional {
+  color: #505050;
+}
+.worddefinition-detailed-popup-search-term {
+  color: #638c0b;
+}
+.worddefinition-detailed-popup-def-index {
+  float: left;
+  width: 20px;
+  margin-left: -25px;
+  text-align: right;
+}
+a.worddefinition-detailed-popup-def-link {
+  text-decoration: none;
+  color: #69c;
+}
+a.worddefinition-detailed-popup-def-link:hover {
+  text-decoration: underline;
+  color: #369;
+}
+
+.worddefinition-detailed-popup-ref-container {
+  margin-left: 10px;
+}
+.worddefinition-detailed-popup-ref {
+  margin-left: 5px;
+  font-weight: bold;
+  color: #35a1d4;
+  cursor: pointer;
+}
+.worddefinition-detailed-popup sup {
+  vertical-align: top;
+  color: inherit;
+}
+
+.worddefinition-detailed-popup-footer {
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(250, 250, 250), rgb(240, 240, 240), rgb(220, 220, 220));
+  margin-bottom: -6px;
+  cursor: pointer;
+}
+.worddefinition-detailed-popup-raquo-up {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  display: inline-block;
+}
+.worddefinition-detailed-popup-raquo-down {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  display: inline-block;
+}

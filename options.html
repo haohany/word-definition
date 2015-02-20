@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Options</title>
+  <link rel="stylesheet" type="text/css" href="options.css" />
+  <script src="options.js"></script>
+</head>
+<body>
+  <div id="vertical-center"></div>
+  
+  <div id="content">
+    <h1 id="title">Settings</h1>
+    <div id="settings">
+      
+      <div class="item">
+	<input type="checkbox" class="float-left" id="link-popup-checkbox" />
+	<div class="float-left">
+	  <span class="desc">Show dictionary links popup</span>
+	  <div class="dict-area" id="link-dict-area">
+	    <div class="hint" id="link-dict-hint">Select dictionaries to show in the popup or drag to change their sequence.</div>
+	    <ul class="dict-list float-left" id="link-dict-list">
+	    </ul>
+	  </div>
+	</div>
+      </div>
+      
+      <div class="item">
+	<input type="checkbox" class="float-left" id="definition-popup-checkbox" />
+	<div class="float-left">
+	  <span class="desc">Show definition popup</span>
+	  <div class="dict-area" id="definition-dict-area">
+	    <div class="hint" id="definition-dict-hint">Check dictionaries whose definition you want to show.</div>
+	    <ul class="dict-list float-left" id="definition-dict-list">
+	    </ul>
+	  </div>
+	</div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>
