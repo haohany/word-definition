@@ -8,7 +8,7 @@ function init() {
   }
   lpc.onchanged = function() {
     bg.setLinkPopupStatus(lpc.checked ? "enabled" : "disabled");
-  }
+  };
   
   var dpc = document.getElementById("definition-popup-checkbox");
   if (bg.getDefPopupStatus() === "enabled") {
@@ -16,7 +16,7 @@ function init() {
   }
   dpc.onchanged = function() {
     bg.setDefPopupStatus(dpc.checked ? "enabled" : "disabled");
-  }
+  };
   
   var ldl = document.getElementById("link-dict-list");
   var ldlData = bg.getLinkDictList();

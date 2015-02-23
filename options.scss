@@ -3,16 +3,13 @@
   padding: 0;
   outline: none;
 }
-
 ul {
   list-style: none;
 }
-
 html, body {
   width: 100%;
   height: 100%;
 }
-
 body {
   font-family: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", sans-serif;
   background: linear-gradient(to bottom, #E8E8E8, #BFBFBF);
@@ -20,13 +17,11 @@ body {
   font-size: 0;
   cursor: default;
 }
-
 #vertical-center {
   display: inline-block;
   width: 0;
   height: 50%;
 }
-
 #content {
   display: inline-block;
   position: relative;
@@ -38,95 +33,81 @@ body {
   border-radius: 10px;
   font-size: 14px;
 }
-
 #title {
   text-shadow: 0 1px 1px black;
   text-transform: uppercase;
   font-size: 20px;
 }
-
 #settings {
   text-align: left;
   overflow: hidden;
 }
-
 .item {
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
 }
-
 .item:last-child {
   margin-bottom: 0;
 }
-
 .desc {
   font-size: 15px;
   font-weight: bold;
 }
-
 .hint {
   margin: 3px 0;
   color: #444;
   font-style: italic;
 }
-
 input {
   display: inline-block;
   vertical-align: middle;
 }
-
 input[type="text"] {
   padding: 4px;
   border-radius: 4px;
   border: none;
 }
-
 input[type="text"]:focus {
   box-shadow: 0 0 3px white;
 }
-
 input[type="checkbox"] {
   width: 15px;
   height: 15px;
 }
-
 input[type="checkbox"].float-left {
   width: 18px;
   height: 18px;
   margin-right: 10px;
 }
-
 .float-left {
   float: left;
 }
-
+.dict-area {
+  //width: 400px;
+}
 .dict-list {
   border: 3px solid #bbb;
   border-radius: 4px;
 }
-
 .dict-list-item {
   padding: 5px;
   margin: 5px;
   border: 2px solid lightblue;
   border-radius: 4px;
 }
-
 .dict-list-item * {
   margin-right: 5px;
 }
-
 .dict-list-item img {
   vertical-align: middle;
 }
-
 button {
   float: right;
   margin-right: 22px;
-  border: 1px solid white;
-  background: -webkit-linear-gradient(bottom, #dfe2e2 25%, white 68%);
-  color: #333333;
+  border: 1px solid rgb(255, 255, 255);
+  background: -webkit-linear-gradient(bottom, rgb(223, 226, 226) 25%, rgb(255, 255, 255) 68%);
+  color: rgb(51, 51, 51);
   cursor: pointer;
   font-weight: bold;
   padding: 3px 11px;
@@ -136,11 +117,9 @@ button {
   font-size: 12px;
   text-align: center;
 }
-
 button:hover {
-  background: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.25, #b8def3), color-stop(0.68, white)) #c7e9ff;
+  background: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.25, rgb(184, 222, 243)), color-stop(0.68, rgb(255, 255, 255))) rgb(199, 233, 255);
 }
-
 button:active {
-  background: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.25, #74b7dd), color-stop(0.68, #e3f4fc)) #90b6ff;
+  background: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.25, rgb(116, 183, 221)), color-stop(0.68, rgb(227, 244, 252))) rgb(144, 182, 255);
 }

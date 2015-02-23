@@ -1,6 +1,6 @@
 {
 	"background": {
-		"scripts": [ "util.js", "pref.js", "bg.js" ]
+		"scripts": ["jquery.js", "pref.js", "bg.js"]
 	},
 	"browser_action": {
 		"default_icon": {
@@ -12,8 +12,9 @@
 	"content_scripts": [
 		{
 			"css": ["inject.css"],
-			"js": ["inject.js"],
-			"matches": ["<all_urls>"]
+			"js": ["inject.js", "jquery.js"],
+			"matches": ["<all_urls>"],
+			"all_frames": true
 		}
 	],
 	"description": "Get detailed definition in both English and Chinese for any selected word on a webpage.",
@@ -24,8 +25,6 @@
 		},
 	"manifest_version": 2,
 	"name": "Word Definition",
-	"options_page": "options.html",
 	"permissions": ["<all_urls>", "chrome://favicon/", "tabs"],
-	"version": "0.11",
-	"web_accessible_resources": [ "img/tip-up.png", "img/tip-down.png" ]
+	"version": "1.0"
 }

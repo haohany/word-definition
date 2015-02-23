@@ -1,72 +1,79 @@
-var WD = WD || {}; // word definition global namespace
+var cache = {};
+var dict = dictMap[getDefDictName()];
 
-chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-  if (msg === "dict") {
-    
-    var dictInfo = {};
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+	if (request.action === "dict") {
+		var dictInfo = {};
 
-    if (getLinkPopupStatus() === "enabled") {
-      var linkDicts = [];
-      var linkDictList = getLinkDictList();
-      for (var i = 0; i < linkDictList.length; i++) {
-	var dict = linkDictList[i];
-	if (dict.status === "enabled") {
-	  linkDicts.push(dictMap[dict.name]);
+		if (getLinkPopupStatus() === "enabled") {
+			dictInfo.linkDictList = [];
+			getLinkDictNameList().forEach(function(name) {
+				dictInfo.linkDictList.push(dictMap[name]);
+			});
+		}
+
+		if (getDefPopupStatus() === "enabled") {
+			dictInfo.defDict = dictMap[getDefDictName()];
+		}
+
+		sendResponse(dictInfo);
 	}
-      }
-      if (linkDicts.length > 0) {
-	dictInfo.linkDicts = linkDicts;
-      }
-    }
-    
-    if (getDefPopupStatus() === "enabled") {
-      var defDicts = [];
-      var defDictList = getDefDictList();
-      for (var i = 0; i < defDictList.length; i++) {
-	var dict = defDictList[i];
-	if (dict.status === "enabled") {
-	  defDicts.push(dictMap[dict.name]);
+	else if (request.action === "definition") {
+		var word = request.word;
+		var definition = cache[word];
+		if (definition) {
+			sendResponse(definition);
+		}
+		else {
+			var xhr = new XMLHttpRequest();
+			var url = dict.query.replace("{word}", word);
+			xhr.open("GET", url);
+			xhr.responseType = "document";
+			xhr.send();
+			xhr.onload = function() {
+				definition = getDefinition(xhr.response);
+				cache[word] = definition;
+				sendResponse(definition);
+			};
+			xhr.onerror = function() {
+				sendResponse(null);
+			};
+			// keep the message channel open until sendResponse is called
+			return true; 
+		}
 	}
-      }
-      if (defDicts.length > 0) {
-	dictInfo.defDicts = defDicts;
-      }
-    }
-    
-    sendResponse(dictInfo);
-  }
 });
 
-/*
-function wrapHtmlTags(elem, textToWrap, tagName, className) {
-  var wrappedElem = document.createElement(tagName);
-  wrappedElem.setAttribute("class", className);
-  wrappedElem.textContent = "$1";
-  
-  var regs = [];
-  textToWrap.forEach(function(text) {
-    regs.push(new RegExp("(\\b" + text + "\\b)", "gi"));
-  });
-  
-  for (var i = 0; i < elem.childNodes.length; i++) {
-    var textNode = elem.childNodes[i];
-    if (textNode.nodeType !== 3) {
-      continue;
-    }
-    regs.forEach(function(reg) {
-      textNode.nodeValue = textNode.nodeValue.replace(reg, wrappedElem.outerHTML);
-    });
-  }
-  
-  return elem;
+function getDefinition(doc) {
+	if (dict.name === "youdao") {
+		return youdaoDefinition(doc);
+	}
 }
 
-function removeHtmlTags(elem) {
-  for (var i = 0; i < elem.children.length; i++) {
-    var childElem = elem.children[i];
-    var newChild = document.createTextNode(removeHtmlTags(childElem).textContent);
-    elem.replaceChild(newChild, childElem);
-  }
-  return elem;
+function youdaoDefinition(doc) {
+	$result = $(doc).find("#collinsResult");
+	$result.attr("data-word-def-class", "word-def-youdao");
+
+	// remove stars and ranks
+	$result.find(".star").remove();
+	$result.find(".rank").remove();
+
+	// change the title to a link
+	var $title = $result.find("h4 .title");
+	$title.each(function() {
+		var $link = $("<a/>").attr("href", doc.URL).attr("target", "_blank");
+		$link.html(this.outerHTML);
+		$(this).replaceWith($link);
+	});
+
+	// show collapsed content
+	$result.find(".collapse-content").removeClass("collapse-content");
+
+	// remove links pointing to "#"
+	$result.find("a[href='#']").remove();
+
+	// remove "例："
+	$result.find(".exampleLists .collinsOrder").remove();
+
+	return $result[0] && $result[0].outerHTML;
 }
-*/

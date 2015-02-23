@@ -1,166 +1,2122 @@
-.worddefinition-popup {
-  position: absolute;
-  box-sizing: border-box;
-  z-index: 10000;
-  text-align: left;
+.word-def-popup {
   font-family: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", sans-serif;
-  font-size: 13px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-  width: auto;
-  height: auto;
-  background-color: transparent;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
   color: black;
-}
-.worddefinition-popup * {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
+  text-align: left;
   width: auto;
   height: auto;
-  background: none transparent;
-  text-align: left;
-  vertical-align: baseline;
-  text-indent: 0px;
-  position: static;
-  box-sizing: content-box;
-}
-
-.worddefinition-popup-body {
-  border-radius: 5px;
-  border: 2px solid rgb(144, 144, 144);
-  box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px;
-  //background: linear-gradient(to bottom, rgb(252, 252, 252) 0%, rgb(245, 245, 245) 33%, rgb(245, 245, 245) 100%);
-  background: rgb(250, 250, 250);
-}
-
-.worddefinition-popup-tip {
-  display: inline-block;
-  width: 12px;
-  height: 9px;
-  background: none 0px 0px no-repeat transparent;
-}
-.worddefinition-popup-tip-up {
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/tip-up.png");
-  margin-bottom: -2px;
-  //vertical-align: bottom;
-}
-.worddefinition-popup-tip-down {
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/tip-down.png");
-  margin-top: -2px;
-  //vertical-align: top;
-}
-
-.worddefinition-popup-links-row {
-  white-space: nowrap;
-  margin: 4px 2px;
-}
-.worddefinition-popup-link {
-  margin: 0px 2px;
-}
-.worddefinition-popup-link-icon {
-  //vertical-align: middle;
-  width: 16px;
-  height: 16px;
-}
-
-.worddefinition-detailed-popup {
+  position: absolute;
+  z-index: 10000;
   width: 360px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 1px 1px;
+  background: #f9f9f9;
+  transition: opacity .2s;
+}
+.word-def-popup * {
+  font-family: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", sans-serif;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  color: black;
+  text-align: left;
+  width: auto;
+  height: auto;
+}
+.word-def-popup .word-def-popup-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.word-def-popup .word-def-popup-tip:before {
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  border-bottom: 10px solid #888;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  content: '';
+}
+.word-def-popup .word-def-popup-tip:after {
+  position: absolute;
+  top: -8px;
+  left: -6px;
+  border-bottom: 8px solid #f9f9f9;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: '';
 }
 
-.worddefinition-detailed-popup .worddefinition-popup-body {
-  padding: 6px 0;
-  line-height: 1.4;
+.word-def-fade {
+  opacity: 0.25;
 }
 
-.worddefinition-detailed-popup-title {
+.word-def-youdao {
+  padding-left: 10px;
+  padding-right: 5px;
+}
+.word-def-youdao body {
+  padding: 0;
+  margin: 0;
   font-size: 14px;
-  font-weight: bold;
-  margin-left: 10px;
+  font-family: Arial,sans-serif;
+  color: #434343;
+  line-height: 24px;
 }
-.worddefinition-detailed-popup-phonetic {
-  margin-left: 7px;
-  color: rgba(200, 80, 0, 0.8);
+.word-def-youdao h1, .word-def-youdao h2, .word-def-youdao h3, .word-def-youdao h4, .word-def-youdao h5, .word-def-youdao p, .word-def-youdao ul, .word-def-youdao form, .word-def-youdao li, .word-def-youdao ol, .word-def-youdao div, .word-def-youdao dl, .word-def-youdao dt, .word-def-youdao dd {
+  margin: 0;
+  padding: 0;
 }
-.worddefinition-detailed-popup-source {
-  float: right;
-  margin-top: 2px;
-  margin-right: 10px;
-  width: 16px;
-  height: 16px;
+.word-def-youdao ul, .word-def-youdao ol, .word-def-youdao li {
+  list-style: none;
 }
-.worddefinition-detailed-popup-pattern {
-  margin-left: 10px;
+.word-def-youdao img {
+  border: 0;
 }
-
-.worddefinition-detailed-popup-item {
-  margin-top: 6px;
+.word-def-youdao a:link, .word-def-youdao a:visited {
+  color: #35a1d4;
+  outline: 0;
 }
-.worddefinition-detailed-popup-def {
-  background-color: #eff5f8;
-  padding: 5px 10px;
+.word-def-youdao a.viaInner, .word-def-youdao .gray a {
+  text-decoration: none;
 }
-.worddefinition-detailed-popup-def-with-index {
-  padding-left: 25px;
-}
-.worddefinition-detailed-popup-example {
-  margin: 3px 10px;
-  margin-left: 25px;
-}
-
-.worddefinition-detailed-popup-additional {
-  color: #505050;
-}
-.worddefinition-detailed-popup-search-term {
+.word-def-youdao b {
+  font-weight: normal;
   color: #638c0b;
 }
-.worddefinition-detailed-popup-def-index {
+.word-def-youdao .additional {
+  color: #959595;
+}
+.word-def-youdao .sp, .word-def-youdao .result_navigator .go-top, .word-def-youdao .add_to_wordbook, .word-def-youdao .remove_from_wordbook, .word-def-youdao .desk-dict, .word-def-youdao .phone-dict, .word-def-youdao .wordbook, .word-def-youdao .yd-school, .word-def-youdao .sina, .word-def-youdao .netease, .word-def-youdao .tencent, .word-def-youdao .renren, .word-def-youdao .kaixin, .word-def-youdao .trans-wrapper h3 .toggleOpen, .word-def-youdao .trans-wrapper h3 .toggle, .word-def-youdao .more_sp, .word-def-youdao .more-collapse .more_sp, .word-def-youdao .video .close, .word-def-youdao .trans-container div .do-detail, .word-def-youdao .wt-collapse div .do-detail, .word-def-youdao .nav-collins .collins-icon, .word-def-youdao .sub-catalog .split, .word-def-youdao #editwordform #close-editwordform, .word-def-youdao .example_see_also .icon, .word-def-youdao .star {
+  background: url(new-sprite.png) no-repeat;
+  vertical-align: middle;
+  overflow: hidden;
+  display: inline-block;
+}
+.word-def-youdao #topImgAd {
+  height: 60px;
+}
+.word-def-youdao #container {
+  width: 960px;
+  margin: 10px auto 0;
+  overflow: hidden;
+  zoom: 1;
+}
+.word-def-youdao #results {
+  margin-top: 15px;
   float: left;
-  width: 20px;
-  margin-left: -25px;
-  text-align: right;
+  position: relative;
 }
-a.worddefinition-detailed-popup-def-link {
+.word-def-youdao .results-content {
+  margin-top: 7px;
+  width: 550px;
+  float: left;
+  _display: inline;
+  margin-left: 140px;
+}
+.word-def-youdao .ads {
+  float: right;
+  width: 250px;
+  margin-top: 22px;
+}
+.word-def-youdao .result_navigator {
+  margin-right: 20px;
+  width: 120px;
+  margin-top: 10px;
+  position: absolute;
+  text-align: center;
+  left: 0;
+}
+.word-def-youdao html {
+  _background-image: url(null);
+}
+.word-def-youdao .rel-search {
+  clear: both;
+  margin-left: 140px;
+}
+.word-def-youdao .rel-search a {
+  margin-right: 40px;
+}
+.word-def-youdao .sub-catalog {
+  margin-bottom: 20px;
+}
+.word-def-youdao .result_navigator h3 {
+  text-align: center;
+  font: 12px/27px normal;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+.word-def-youdao .sub-catalog .split {
+  display: block;
+  background-position: -238px -8px;
+  height: 10px;
+  width: 120px;
+  margin: 0 auto;
+  font-size: 0;
+}
+.word-def-youdao .example-group .split {
+  margin: 3px auto 0;
+}
+.word-def-youdao #result_navigator .example-group h3 {
+  font-size: 13px;
+  margin-left: -18px;
+}
+.word-def-youdao .sub-catalog li {
+  font: 12px/27px normal;
+}
+.word-def-youdao .sub-catalog li a {
+  color: #a0a0a0;
+  display: inline-block;
   text-decoration: none;
-  color: #69c;
+  width: 120px;
+  height: 27px;
 }
-a.worddefinition-detailed-popup-def-link:hover {
+.word-def-youdao .sub-catalog li a:link, .word-def-youdao .sub-catalog li a:visited {
+  color: #a0a0a0;
+}
+.word-def-youdao .sub-catalog li a:hover, .word-def-youdao .example-group h3 a:hover {
+  font-weight: bold;
+  color: #434343;
+}
+.word-def-youdao .result_navigator .go-top {
+  background-position: -29px 0;
+  display: inline-block;
+  padding-top: 24px;
+  height: 0;
+  width: 25px;
+}
+.word-def-youdao .result_navigator .go-top:hover {
+  background-position: -59px 0;
+}
+.word-def-youdao .result_navigator .back-to-dict {
+  display: block;
+  margin: 15px 0 0 30px;
+  font-size: 12px;
+  color: #c9c9c9;
+  text-decoration: none;
+  width: 56px;
+  height: 19px;
+  line-height: 19px;
+  border: 2px solid #ddd;
+}
+.word-def-youdao .result_navigator .back-to-dict:hover {
+  border: 2px solid #a9c7d7;
+  color: #a9c7d7;
+}
+.word-def-youdao .nav-collins {
+  position: relative;
+}
+.word-def-youdao .nav-collins .collins-icon {
+  position: absolute;
+  top: -5px;
+  left: 78px;
+  background-position: 0 0;
+  width: 24px;
+  height: 9px;
+}
+.word-def-youdao .example-group li a {
+  text-align: left;
+}
+.word-def-youdao .example-group h3 a {
+  color: #000;
+  text-decoration: none;
+}
+.word-def-youdao .example-group .catalog-selected a {
+  font-weight: bold;
+  color: #434343;
+}
+.word-def-youdao .example-group li {
+  margin-left: 16px;
+  padding-left: 19px;
+}
+.word-def-youdao .example-group .sub-catalog-selected {
+  border-left: 2px solid #63bfeb;
+  font-weight: bold;
+}
+.word-def-youdao .example-group .sub-catalog-selected a {
+  position: relative;
+  left: -2px;
+  color: #434343;
+}
+.word-def-youdao .dict-inter, .word-def-youdao .follow {
+  border: 1px solid #e5e5e5;
+  background: #fafafa;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+.word-def-youdao #baidu-adv {
+  margin-bottom: 15px;
+}
+.word-def-youdao .dict-inter a {
+  text-decoration: none;
+}
+.word-def-youdao .dict-inter a:hover {
   text-decoration: underline;
-  color: #369;
 }
-
-.worddefinition-detailed-popup-ref-container {
+.word-def-youdao .dict-inter li {
+  float: left;
+  width: 114px;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  overflow: hidden;
+  zoom: 1;
+}
+.word-def-youdao .pr-link {
+  height: 68px;
+  padding: 8px 4px 0 8px;
+}
+.word-def-youdao .pr-link li {
+  padding: 0 4px 5px 0;
+}
+.word-def-youdao .pr-link li a {
+  display: inline-block;
+  width: 114px;
+  height: 30px;
+  color: #a0a0a0;
+  vertical-align: top;
+  cursor: pointer;
+}
+.word-def-youdao .pr-link li a:hover, .word-def-youdao .follow .bd a {
+  text-decoration: none;
+  zoom: 1;
+}
+.word-def-youdao .text-link {
+  padding: 10px 13px 10px 15px;
+  line-height: 26px;
+}
+.word-def-youdao .desk-dict, .word-def-youdao .phone-dict, .word-def-youdao .wordbook, .word-def-youdao .yd-school {
+  padding-left: 46px;
+}
+.word-def-youdao .desk-dict {
+  background-position: -379px 4px;
+}
+.word-def-youdao .pr-link li a:hover .desk-dict {
+  background-position: -380px -31px;
+}
+.word-def-youdao .phone-dict {
+  background-position: -380px -137px;
+}
+.word-def-youdao .pr-link li a:hover .phone-dict {
+  background-position: -380px -171px;
+}
+.word-def-youdao .wordbook {
+  background-position: -379px -68px;
+}
+.word-def-youdao .pr-link li a:hover .wordbook {
+  background-position: -379px -102px;
+}
+.word-def-youdao .yd-school {
+  background-position: -380px -205px;
+}
+.word-def-youdao .pr-link li a:hover .yd-school {
+  background-position: -381px -244px;
+}
+.word-def-youdao .follow .hd {
+  margin: 15px 0 0 15px;
+  color: #a0a0a0;
+}
+.word-def-youdao .follow .bd {
+  margin: 10px -14px 15px 10px;
+}
+.word-def-youdao .follow .bd a {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  margin: 0 24px 5px 0;
+  color: #a0a0a0;
+  text-decoration: none;
+  cursor: pointer;
+}
+.word-def-youdao .sina, .word-def-youdao .netease, .word-def-youdao .tencent, .word-def-youdao .renren, .word-def-youdao .kaixin {
+  padding-top: 40px;
+}
+.word-def-youdao .sina {
+  background-position: -319px -283px;
+}
+.word-def-youdao .follow a:hover .sina {
+  background-position: -377px -283px;
+}
+.word-def-youdao .netease {
+  background-position: -210px -285px;
+}
+.word-def-youdao .follow a:hover .netease {
+  background-position: -260px -285px;
+}
+.word-def-youdao .tencent {
+  background-position: 10px -212px;
+}
+.word-def-youdao .follow a:hover .tencent {
+  background-position: -41px -213px;
+}
+.word-def-youdao .renren {
+  background-position: -92px -283px;
+}
+.word-def-youdao .follow a:hover .renren {
+  background-position: -152px -283px;
+}
+.word-def-youdao .kaixin {
+  background-position: 10px -283px;
+}
+.word-def-youdao .follow a:hover .kaixin {
+  background-position: -35px -283px;
+}
+.word-def-youdao #phrsListTab {
+  margin-top: 0;
+  overflow: hidden;
+}
+.word-def-youdao #phrsListTab .phonetic {
+  font-size: 14px;
+}
+.word-def-youdao #phrsListTab .trans-container {
+  margin: 1em 0 2em 0;
+  color: #000;
+}
+.word-def-youdao #phrsListTab h2 {
+  line-height: 30px;
+  font-size: 24px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  zoom: 1;
+  word-break: break-all;
+}
+.word-def-youdao .keyword {
+  margin-right: 1px;
+}
+.word-def-youdao #phrsListTab .trans-container li {
+  font-weight: bold;
+  color: #434343;
+}
+.word-def-youdao .img-list {
+  float: right;
+}
+.word-def-youdao .img-list img {
+  height: 80px;
+  padding: 2px;
+  border: 1px solid #e5e5e5;
+}
+.word-def-youdao .add-fav {
+  display: inline-block;
+  width: 23px;
+  height: 19px;
+  background-position: -168px -132px;
+  outline: 0;
+}
+.word-def-youdao .add-fav:hover {
+  background-position: -168px -149px;
+}
+.word-def-youdao .add-faved {
+  outline: 0;
+  background-position: -209px -132px;
+}
+.word-def-youdao .add-faved:hover {
+  background-position: -209px -149px;
+}
+.word-def-youdao #phrsListTab h2 .dictvoice, .word-def-youdao #jcTrans h2 .dictvoice {
+  outline: 0;
+  display: inline-block;
+  width: 16px;
+  height: 25px;
+  background-position: -121px 0;
+  *background-position: -121px 3px;
+  vertical-align: bottom;
+  margin-left: .4em;
+}
+.word-def-youdao #jcTrans h2 .dictvoice {
+  background-position: -121px 5px;
+  *background-position: -121px 3px;
+}
+.word-def-youdao #phrsListTab h2 .dictvoice:hover, .word-def-youdao #jcTrans h2 .dictvoice:hover {
+  background-position: -92px 0;
+  *background-position: -92px 3px;
+}
+.word-def-youdao #jcTrans h2 .dictvoice:hover {
+  background-position: -92px 5px;
+  *background-position: -92px 3px;
+}
+.word-def-youdao #phrsListTab h2 .baav .dictvoice, .word-def-youdao #jcTrans h2 .baav .dictvoice {
+  background-position: -121px 3px;
+  *background-position: -121px 0;
+}
+.word-def-youdao #phrsListTab h2 .baav .dictvoice:hover, .word-def-youdao #jcTrans h2 .baav .dictvoice:hover {
+  background-position: -92px 3px;
+  *background-position: -92px 0;
+}
+.word-def-youdao #phrsListTab h2 .humanvoice {
+  vertical-align: top;
+  width: 18px;
+  height: 20px;
+  background-position: -179px 4px;
+}
+.word-def-youdao #phrsListTab h2 .humanvoice:hover {
+  background-position: -149px 4px;
+}
+.word-def-youdao .dictvoice {
+  vertical-align: middle;
+  width: 10px;
+  height: 21px;
+  background-position: -47px -36px;
+}
+.word-def-youdao .dictvoice:hover {
+  background-position: -32px -36px;
+}
+.word-def-youdao .humanvoice {
+  vertical-align: top;
+  width: 18px;
+  height: 18px;
+  background-position: -161px -110px;
+}
+.word-def-youdao .humanvoice:hover {
+  background-position: -188px -110px;
+}
+.word-def-youdao .add_to_wordbook {
+  vertical-align: top;
+  background-position: -70px -30px;
+  *background-position: -70px -32px;
+  width: 24px;
+  padding-top: 26px;
+  height: 0;
+  margin-left: .5em;
+  *margin-left: .75em;
+}
+.word-def-youdao .add_to_wordbook:hover {
+  background-position: -99px -30px;
+  *background-position: -99px -32px;
+}
+.word-def-youdao .remove_from_wordbook {
+  vertical-align: top;
+  background-position: 0 -31px;
+  *background-position: 0 -33px;
+  width: 22px;
+  padding-top: 26px;
+  height: 0;
+  margin-left: .5em;
+  *margin-left: .75em;
+}
+.word-def-youdao .remove_from_wordbook:hover {
+  background-position: -205px 7px;
+  *background-position: -205px 5px;
+}
+.word-def-youdao .pos {
+  margin-right: .1em;
+}
+.word-def-youdao .def {
+  margin-left: .1em;
+}
+.word-def-youdao .trans-wrapper {
+  position: relative;
+  zoom: 1;
+}
+.word-def-youdao .trans-wrapper h3 {
+  font-size: 14px;
+  position: relative;
+  margin: 0 0 .7em 0;
+  height: 26px;
+  line-height: 26px;
+  border-bottom: 2px solid #ddd;
+}
+.word-def-youdao .trans-wrapper h3 .toggle {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  cursor: pointer;
+  width: 11px;
+  height: 20px;
+  background-position: -181px -37px;
+}
+.word-def-youdao .trans-wrapper h3 .toggle:hover {
+  background-position: -202px -37px;
+}
+.word-def-youdao .trans-wrapper h3 .toggleOpen {
+  background-position: -138px -37px;
+}
+.word-def-youdao .trans-wrapper h3 .toggleOpen:hover {
+  background-position: -160px -37px;
+}
+.word-def-youdao .tabs a, .word-def-youdao .tab-current {
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 2px solid #fff;
+  height: 26px;
+  _position: relative;
+  _top: 2px;
+}
+.word-def-youdao .tabs a span {
+  cursor: pointer;
+}
+.word-def-youdao .tabs a.tab-current {
+  cursor: default;
+}
+.word-def-youdao .tabs a.tab-current span {
+  cursor: default;
+  color: #434343;
+  font-weight: bold;
+}
+.word-def-youdao .tabs a span, .word-def-youdao .tab-current span {
+  display: inline-block;
+  padding: 0 20px;
+  height: 26px;
+  border-bottom: 2px solid #bfbfbf;
+  margin-right: 2px;
+  _position: relative;
+  _top: 2px;
+}
+.word-def-youdao .results-content .tabs a:hover span {
+  border-bottom: 2px solid #5fc4f3;
+}
+.word-def-youdao .results-content .tab-current span {
+  border-bottom: 2px solid #5fc4f3;
+  color: #434343;
+  font-weight: bold;
+}
+.word-def-youdao .trans-container {
+  margin: .9em 0 1.8em;
+}
+.word-def-youdao .trans-container p, .word-def-youdao .trans-container li {
+  line-height: 24px;
+}
+.word-def-youdao .trans-container .ol {
+  margin: 8px 15px 0 20px;
+  margin-left: 33px\9;
+}
+.word-def-youdao .trans-container .ul {
+  margin: 8px 15px 18px 0;
+}
+.word-def-youdao .trans-container .ol li {
+  list-style: decimal;
+  margin: 0 0 .7em 0;
+}
+.word-def-youdao .trans-container .ul li {
+  margin: 0 0 1em 0;
+}
+.word-def-youdao .ar {
+  color: #a0a0a0;
+  font-size: 12px;
+}
+.word-def-youdao p.via, .word-def-youdao span.via {
+  color: #959595;
+}
+.word-def-youdao p.via {
+  font-size: 12px;
+}
+.word-def-youdao p.via a {
+  color: #35a1d4;
+  font-size: 12px;
+}
+.word-def-youdao p.additional a {
+  color: #35a1d4;
+  text-decoration: none;
+}
+.word-def-youdao .s1 {
+  margin: 0 3px;
+}
+.word-def-youdao .trans-container h4 sup {
+  font-size: .77em;
+  font-weight: normal;
+}
+.word-def-youdao #examples_sentences .allExplanation {
+  float: right;
+  margin: 0 15px 0 0;
+  text-decoration: none;
+  background: #63bfeb;
+  color: #fff;
+  padding: 0 5px;
+}
+.word-def-youdao #examples_sentences .allExplanation:hover {
+  background: #a4d5ec;
+}
+.word-def-youdao .search_result {
+  margin: .83em 0 1.25em;
+}
+.word-def-youdao .search_result .sresult_content {
+  margin: .45em 0;
+}
+.word-def-youdao .search_result .sresult_link {
+  color: #54903f;
+  text-decoration: none;
+}
+.word-def-youdao .phonetic, .word-def-youdao .field, .word-def-youdao .origin, .word-def-youdao .complexfont {
+  font-weight: normal;
+  color: #666;
+  margin: 0 .1em;
+}
+.word-def-youdao h4 .field, .word-def-youdao h4 .origin, .word-def-youdao h4 .def, .word-def-youdao h4 .collapsed-def {
   margin-left: 10px;
+  font-size: 12px;
 }
-.worddefinition-detailed-popup-ref {
-  margin-left: 5px;
+.word-def-youdao .phonetic {
+  color: #a0a0a0;
+  font-family: "lucida sans unicode",arial,sans-serif;
+}
+.word-def-youdao .dif {
+  color: #808080;
+}
+.word-def-youdao .wordGroup .contentTitle {
   font-weight: bold;
   color: #35a1d4;
+  margin-right: .5em;
+}
+.word-def-youdao .wordGroup .contentTitle a {
+  text-decoration: none;
+}
+.word-def-youdao .wordGroup .century21 {
   cursor: pointer;
+  width: 16px;
+  display: inline-block;
+  height: 16px;
+  background: url("new-sprite.png") no-repeat -110px -150px;
+  text-decoration: none;
 }
-.worddefinition-detailed-popup sup {
-  vertical-align: top;
-  color: inherit;
+.word-def-youdao .wordGroup a.century21:hover {
+  background: url("new-sprite.png") no-repeat -110px -132px;
 }
-
-.worddefinition-detailed-popup-footer {
+.word-def-youdao .ol .sense-ex {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #808080;
+}
+.word-def-youdao .ol .sense-ex li {
+  list-style: none;
+  margin-bottom: 0;
+}
+.word-def-youdao .sense-ex .exam-sen {
+  padding-left: 2.5em;
+}
+.word-def-youdao .sense-ex ul, .word-def-youdao .sense-ex ul li {
+  margin: 0;
+  padding: 0;
+}
+.word-def-youdao #tWebTrans .wt-container p {
+  margin: 0 15px;
+}
+.word-def-youdao #webPhrase {
+  margin-top: 10px;
+}
+.word-def-youdao .wt-container .collapsed-def {
+  display: none;
+}
+.word-def-youdao .wt-collapse .collapsed-def {
+  display: inline;
+  font-weight: normal;
+}
+.word-def-youdao .wt-collapse .collapse-content {
+  display: none;
+}
+.word-def-youdao .phrase-collapse .wt-more {
+  display: none;
+}
+.word-def-youdao .pr-container .title, .word-def-youdao .wt-container .title {
+  font-weight: bold;
+  position: relative;
+}
+.word-def-youdao .wt-container .title span {
+  zoom: 1;
+  vertical-align: middle;
+}
+.word-def-youdao #tWebTrans .wt-container p {
+  margin: .45em 15px;
+}
+.word-def-youdao #results-content .wt-container div a {
+  color: #2b2b2b;
+  text-decoration: none;
+}
+.word-def-youdao #results-content #collinsResult .wt-container div a {
+  color: #35a1d4;
+}
+.word-def-youdao .trans-container div .do-detail {
+  background-position: -194px -74px;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+.word-def-youdao .trans-container div .do-detail:hover {
+  background-position: -219px -74px;
+}
+.word-def-youdao .wt-collapse div .do-detail {
+  background-position: 0 -74px;
+}
+.word-def-youdao .wt-collapse div .do-detail:hover {
+  background-position: -17px -74px;
+}
+.word-def-youdao .wt-container a {
+  outline: 0;
+}
+.word-def-youdao .more {
+  height: 18px;
+  width: 200px;
+  line-height: 18px;
+  _line-height: 23px;
+  margin: 15px 0;
+  color: #35a1d4;
+}
+.word-def-youdao .more_sp {
+  background-position: -39px -74px;
+  width: 12px;
+  height: 12px;
+  text-decoration: none;
+}
+.word-def-youdao .more_sp:hover {
+  background-position: -58px -74px;
+}
+.word-def-youdao .more-collapse .more_sp {
+  background-position: -76px -74px;
+}
+.word-def-youdao .more-collapse .more_sp:hover {
+  background-position: -96px -74px;
+}
+.word-def-youdao .unfold {
+  display: none;
+}
+.word-def-youdao .more-collapse .collapse {
+  display: none;
+}
+.word-def-youdao .more-collapse .unfold {
+  display: inline;
+}
+.word-def-youdao .show_more {
+  display: none;
+}
+.word-def-youdao .more-collapse .show_more {
+  display: inline;
+}
+.word-def-youdao .show_less {
+  display: inline;
+}
+.word-def-youdao .more-collapse .show_less {
+  display: none;
+}
+.word-def-youdao .gram {
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  color: #808080;
+}
+.word-def-youdao .related-lan {
+  padding: 1em 22px;
+}
+.word-def-youdao .related-lan a {
+  margin-left: .5em;
+}
+.word-def-youdao .hh-collapse .hh-more {
+  display: none;
+}
+.word-def-youdao .more-hh {
+  width: 103px;
+  padding-top: 20px;
+  margin: .7em 0 0;
+  background-position: -309px -90px;
+}
+.word-def-youdao .hh-collapse .more-hh {
+  background-position: -206px -90px;
+}
+.word-def-youdao .more-example {
+  text-decoration: none;
+  color: #35a1d4;
+}
+.word-def-youdao .eBaike .trans-container {
+  margin: .5em 0 1em;
+}
+.word-def-youdao .eBaike .eBaike-index {
+  overflow: hidden;
+  zoom: 1;
+  padding-bottom: 15px;
+  border-bottom: 1px dotted #ddd;
+  line-height: 24px;
+}
+.word-def-youdao .eBaike-index .content {
+  line-height: 24px;
+}
+.word-def-youdao .eBaike-detail .eBaike-index {
+  border: 0;
+}
+.word-def-youdao .eBaike h2 {
+  font-size: 12px;
+  font-weight: normal;
+  overflow: hidden;
+  zoom: 1;
+}
+.word-def-youdao .eBaike h2 .subject {
+  font-size: 24px;
+  float: left;
+  margin: 0 .5em 0 .3em;
+  font-weight: bold;
+}
+.word-def-youdao .eBaike .title {
+  text-decoration: none;
+  line-height: 24px;
+  font-weight: bold;
+}
+.word-def-youdao .eBaike .img_r {
+  float: right;
+  margin-left: 1em;
+}
+.word-def-youdao .eBaike .img {
+  background: #f7f7f7;
+  border: 1px solid #e1e1e1;
+  color: #666;
+  padding: 3px;
   text-align: center;
-  background: linear-gradient(to bottom, rgb(250, 250, 250), rgb(240, 240, 240), rgb(220, 220, 220));
-  margin-bottom: -6px;
+}
+.word-def-youdao .eBaike .img strong {
+  clear: both;
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+  overflow: hidden;
+}
+.word-def-youdao .eBaike .see_more {
+  text-decoration: none;
+}
+.word-def-youdao .eBaike .ar {
+  float: right;
+}
+.word-def-youdao #bk .ar {
+  float: none;
+  text-align: right;
+}
+.word-def-youdao #baike h2 {
+  font-size: 1em;
+  overflow: auto;
+  zoom: 1;
+}
+.word-def-youdao #baike h2 .subject {
+  font-size: 1.13em;
+  float: left;
+}
+.word-def-youdao #baike h2 .via {
+  float: right;
+  color: #959595;
+  font-weight: normal;
+}
+.word-def-youdao #baike .via img {
+  vertical-align: middle;
+}
+.word-def-youdao #baike .description {
+  line-height: 1.5em;
+  overflow: hidden;
+  zoom: 1;
+}
+.word-def-youdao #baike .sub-title {
+  float: left;
+}
+.word-def-youdao #baike h3 {
+  background: 0;
+  font-size: 1em;
+  height: 1.9em;
+  line-height: 1.9em;
+  margin: .83em 0 .83em;
+  position: relative;
+  padding-left: 5px;
+  border-top: 1px dotted #e0e0e0;
+}
+.word-def-youdao #baike .trans-container .content {
+  overflow: hidden;
+  zoom: 1;
+  line-height: 1.5em;
+  margin: .25em 0;
+}
+.word-def-youdao #baike .trans-container .content .term {
+  font-weight: bold;
+}
+.word-def-youdao #baike .trans-container a {
+  text-decoration: none;
+}
+.word-def-youdao #baike .img {
+  background: #f7f7f7;
+  border: 1px solid #e1e1e1;
+  color: #666;
+  padding: 3px;
+  text-align: center;
+}
+.word-def-youdao #baike .img_r {
+  float: right;
+  margin-left: 1em;
+}
+.word-def-youdao #baike .img strong {
+  clear: both;
+  display: block;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.5em;
+  overflow: hidden;
+}
+.word-def-youdao #baike .img_l {
+  float: right;
+  margin-left: 1em;
+}
+.word-def-youdao #baike .table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  empty-cells: show;
+  background: #f7f7f7;
+  border: 1px solid #e1e1e1;
+}
+.word-def-youdao #baike .table td {
+  background: #fafafa;
+  border: 1px solid #DDD;
+  padding: 10px;
+  vertical-align: top;
+}
+.word-def-youdao #baike .suggests .suggest {
+  border-top: 1px dotted #e0e0e0;
+  margin: 10px 0;
+  padding-top: 10px;
+  overflow: hidden;
+  zoom: 1;
+}
+.word-def-youdao .example_content .content_title .boldWord {
+  font-weight: bold;
+}
+.word-def-youdao .example_content .content_title .boldWord a, .word-def-youdao .example_content .content_title .boldWord a:link, .word-def-youdao .example_content .content_title a:visited {
+  text-decoration: none;
+}
+.word-def-youdao .example_content .content_title .tabLink a:hover {
+  color: #313131;
+}
+.word-def-youdao .example_content .content_title .tabLink a.selected_link {
+  cursor: default;
+  color: #313131;
+}
+.word-def-youdao .example_content .allExplanation {
+  float: right;
+  margin: 2px 15px 0 0;
+  width: 85px;
+  height: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  background: url("new-sprite.png") no-repeat 0 -168px;
+}
+.word-def-youdao .example_content a.allExplanation:hover {
+  background-position: -85px -168px;
+}
+.word-def-youdao .example_content .error-wrapper {
+  margin: 20px 10px 20px 0;
+}
+.word-def-youdao .video {
+  position: relative;
+}
+.word-def-youdao .video .play {
+  display: inline-block;
+  position: relative;
+}
+.word-def-youdao .video .close {
+  width: 14px;
+  height: 14px;
+  background-position: -117px -72px;
+  position: absolute;
+  top: -1px;
+  left: 330px;
+}
+.word-def-youdao .video .close:hover {
+  background-position: -141px -72px;
+}
+.word-def-youdao .video .playicon {
+  cursor: pointer;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+.word-def-youdao .remind {
+  margin: 1.1em 0 2.85em;
+}
+.word-def-youdao .remind a {
+  text-decoration: none;
+}
+.word-def-youdao .example_see_also {
+  overflow: hidden;
+  zoom: 1;
+}
+.word-def-youdao .example_see_also .info {
+  float: left;
+  width: 185px;
+  height: 110px;
+  margin: 5px 10px 0 0;
+  display: inline;
+  background: #f5f5f5;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0 10px;
+}
+.word-def-youdao a.info:hover {
+  background: #78c8e3;
+}
+.word-def-youdao .example_see_also div {
+  line-height: 24px;
+  margin: 10px 20px 10px 0;
+}
+.word-def-youdao .example_see_also .info .description {
+  color: #a0a0a0;
+  font-size: 12px;
+  margin: 0;
+}
+.word-def-youdao .example_see_also .info:hover .description, .word-def-youdao .example_see_also .info:hover .title {
+  color: #fff;
+}
+.word-def-youdao .example_see_also .icon {
+  display: inline-block;
+  height: 33px;
+  width: 46px;
+  vertical-align: middle;
+}
+.word-def-youdao .example_see_also .title {
+  margin-left: 10px;
+  font-size: 14px;
+}
+.word-def-youdao .example_see_also .bilingual .icon {
+  background-position: -46px -107px;
+  width: 50px;
+}
+.word-def-youdao .example_see_also .originalSound .icon {
+  background-position: 6px -107px;
+}
+.word-def-youdao .example_see_also .authority .icon {
+  background-position: -96px -107px;
+  width: 50px;
+}
+.word-def-youdao .bottom {
+  position: absolute;
+  bottom: 0;
+}
+.word-def-youdao .def a {
+  text-decoration: none;
+}
+.word-def-youdao .highLight {
+  background: #e8e5cb;
+}
+.word-def-youdao .dont_show_nav #example_navigator {
+  display: none;
+}
+.word-def-youdao .dont_show_nav #example_content {
+  margin-left: 15px;
+}
+.word-def-youdao #tPowerTrans p.additional {
+  margin: 5px 0;
+  text-indent: 20px;
+}
+.word-def-youdao #tEETrans p.additional {
+  margin: 5px 0;
+  text-indent: 14px;
+}
+.word-def-youdao #tEETrans .ol p em, .word-def-youdao .gray {
+  color: #a0a0a0;
+}
+.word-def-youdao .wordTrans {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background-position: -183px -237px;
   cursor: pointer;
 }
-.worddefinition-detailed-popup-raquo-up {
-  -webkit-transform: rotate(270deg);
-  transform: rotate(270deg);
+.word-def-youdao .wordTrans a {
+  color: #2779b6;
+}
+.word-def-youdao .errorTip {
+  height: 18px;
+  line-height: 18px;
+  font-weight: normal;
+}
+.word-def-youdao #transDevotion form p {
+  margin: 8px 0;
+  line-height: 1.5em;
+}
+.word-def-youdao #transDevotion form label {
+  margin: 0 .83em 0 0;
+}
+.word-def-youdao #transDevotion form .center {
+  margin: 0 6px 0 0;
+}
+.word-def-youdao .trans-container textarea.trans-content, .word-def-youdao .trans-container input.trans-message {
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: normal;
+  width: 220px;
+}
+.word-def-youdao .trans-container textarea.trans-content {
+  height: 70px;
+  resize: none;
+}
+.word-def-youdao #transDevotion form .submitTip {
+  margin-left: 70px;
+}
+.word-def-youdao #transDevotion .error-message {
+  margin: 0 0 -5px 72px;
+  display: block;
+}
+.word-def-youdao .trans-container .ensure, .word-def-youdao .trans-container a.ensure:hover {
+  display: inline-block;
+  width: 61px;
+  height: 24px;
+  cursor: pointer;
+}
+.word-def-youdao .trans-container .ensure {
+  background-position: -61px -237px;
+}
+.word-def-youdao .trans-container .ensure:hover {
+  background-position: 0 -237px;
+}
+.word-def-youdao .trans-container .ensure:active {
+  background-position: -122px -237px;
+}
+.word-def-youdao .trans-container .cancel, .word-def-youdao .trans-container .cancel:hover {
+  display: inline-block;
+  width: 61px;
+  height: 24px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.word-def-youdao .trans-container .cancel {
+  background-position: -61px -261px;
+}
+.word-def-youdao .trans-container .cancel:hover {
+  background-position: 0 -261px;
+}
+.word-def-youdao .trans-container .cancel:active {
+  background-position: -122px -261px;
+}
+.word-def-youdao .trans-container .alignCenter span {
+  display: none;
+}
+.word-def-youdao .collins .wordGroup {
+  color: #35a1d4;
+  margin-bottom: 6px;
+}
+.word-def-youdao .collins .wordGroup .contentTitle {
+  color: #a0a0a0;
+  font-weight: normal;
+}
+.word-def-youdao .collins .more {
+  float: right;
+  margin: -23px 0;
+  width: auto;
+}
+.word-def-youdao .wt-container .trans-tip {
+  font-weight: normal;
+  color: #9d9d9d;
+}
+.word-def-youdao .wt-container .trans-content {
+  font-weight: normal;
+}
+.word-def-youdao .wt-container .collins-intro {
+  border: 1px solid #cdcdcd;
+  padding: 6px 0 6px 5px;
+  color: #959595;
+}
+.word-def-youdao .trans-content ol {
+  padding-left: 23px;
+}
+.word-def-youdao .trans-content .pattern, .word-def-youdao .trans-content .spell {
+  font-weight: normal;
+  margin-left: 5px;
+  font-size: 12px;
+}
+.word-def-youdao .collins-phonetic {
+  font-family: "lucida sans unicode",arial,sans-serif;
+}
+.word-def-youdao .trans-content .pattern {
+  margin-left: 15px;
+}
+.word-def-youdao .trans-content .title, .word-def-youdao .trans-content .rank {
+  font-size: 14px;
+  color: #313131;
+  font-weight: bold;
+}
+.word-def-youdao .trans-content .rank {
+  margin-left: 10px;
+}
+.word-def-youdao .trans-content .trans {
+  margin-left: 10px;
+  color: #313131;
+}
+.word-def-youdao #collins .additional span {
+  display: inline-block;
+  margin-left: -1.83em;
+}
+.word-def-youdao #collins .additional p {
+  padding-left: 1.83em;
+}
+.word-def-youdao .usage {
+  margin-left: 15px;
+}
+.word-def-youdao #collinsResult .ol {
+  margin: 8px 0 0 0;
+}
+.word-def-youdao #collinsResult .ol li {
+  list-style: none;
+}
+.word-def-youdao #collinsResult .ol .collinsMajorTrans {
+  background: #eff5f8;
+  padding: 5px 5px 5px 25px;
+  width: 525px;
+}
+.word-def-youdao #collinsResult .collinsOrder {
+  float: left;
+  margin-left: -15px;
+}
+.word-def-youdao #collinsResult .exampleLists {
+  margin: 15px 0 15px 40px;
+  color: #626262;
+}
+.word-def-youdao .collinsMajorTrans .additional {
+  color: #626262;
+}
+.word-def-youdao #collinsResult .examples {
+  padding-left: 15px;
+}
+.word-def-youdao #collinsResult b {
+  font-weight: bold;
+}
+.word-def-youdao .collinsToggle h4 .title {
+  color: #eb6100;
+}
+.word-def-youdao .star {
+  margin-left: 10px;
+  background-position: -225px -112px;
+  _background-position: -225px -110px;
+  height: 14px;
+  vertical-align: middle;
+}
+.word-def-youdao .star5 {
+  width: 64px;
+}
+.word-def-youdao .star4 {
+  width: 51px;
+}
+.word-def-youdao .star3 {
+  width: 37px;
+}
+.word-def-youdao .star2 {
+  width: 25px;
+}
+.word-def-youdao .star1 {
+  width: 11px;
+}
+.word-def-youdao .p-type {
+  text-decoration: none;
+}
+.word-def-youdao .p-type:hover {
+  color: #313131;
+}
+.word-def-youdao .type-list {
+  line-height: 24px;
+}
+.word-def-youdao .type-list .boldWord {
+  margin-right: 10px;
+}
+.word-def-youdao .type-list ins {
+  text-decoration: none;
+  margin: 0 10px;
+  color: #959595;
+  cursor: default;
+}
+.word-def-youdao .type-list a:hover {
+  color: #434343;
+}
+.word-def-youdao .type-list .selected_link {
+  color: #434343;
+}
+.word-def-youdao #tPETrans .additional {
+  font-size: 12px;
+}
+.word-def-youdao #tPETrans .additional a {
+  text-decoration: underline;
+}
+.word-def-youdao #tPETrans .type-list .selected_link {
+  cursor: default;
+  color: #313131;
+}
+.word-def-youdao #tPETrans .all-trans {
+  margin: 16px 0;
+}
+.word-def-youdao .all-trans .types .items {
+  margin-bottom: 16px;
+  list-style: none;
+}
+.word-def-youdao .all-trans .types .items a:link, .word-def-youdao .all-trans .types .items a:visited {
+  font-size: 12px;
+  color: #959595;
+  text-decoration: none;
+}
+.word-def-youdao .all-trans .types .items a:hover {
+  text-decoration: underline;
+}
+.word-def-youdao .all-trans .items .title {
+  font-weight: bold;
+}
+.word-def-youdao .all-trans .types {
+  display: none;
+  margin: 0;
+}
+.word-def-youdao .all-trans .types .source {
+  margin-top: 6px;
+}
+.word-def-youdao .all-trans .types .trans {
+  margin-bottom: 6px;
+}
+.word-def-youdao .clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.word-def-youdao .clearfix {
+  zoom: 1;
+}
+.word-def-youdao #results .middot {
+  font-size: 20px;
+  _font-size: 12px;
+  font-weight: bold;
+  vertical-align: middle;
+  margin: 0;
+}
+.word-def-youdao #simple_dict_trans ul .small-lang {
+  zoom: 1;
+}
+.word-def-youdao .ead_line div {
+  zoom: 1;
+}
+.word-def-youdao .need-help {
+  display: inline-block;
+  margin-left: 2px;
+  margin-top: 2px;
+  background-position: -166px -72px;
+  width: 20px;
+  height: 16px;
+}
+.word-def-youdao .wt-container div.title span, .word-def-youdao #webPhrase .more, .word-def-youdao #hhTrans .more-hh, .word-def-youdao #word_phrs .more, .word-def-youdao #collinsResult .pr-container .more {
+  cursor: pointer;
+}
+.word-def-youdao #examples_sentences, .word-def-youdao #examples_sentences .trans-container {
+  margin-top: 0;
+}
+.word-def-youdao #examples_sentences .ol {
+  margin-top: 25px;
+}
+.word-def-youdao .example-via a {
+  color: #959595;
+  text-decoration: none;
+  font-size: 12px;
+}
+.word-def-youdao .error-typo {
+  margin: 0 0 15px 0;
+  padding: 9px 5px 14px;
+  border: 1px solid #e1deb6;
+  background-color: #f9f8eb;
+}
+.word-def-youdao .error-typo h4 {
+  margin: 0 0 13px;
+}
+.word-def-youdao .error-typo .typo-rel {
+  margin: 8px 0 0;
+}
+.word-def-youdao .error-typo .typo-rel .title {
+  font-weight: bold;
+}
+.word-def-youdao .error-typo .typo-rel .title a {
+  text-decoration: none;
+}
+.word-def-youdao #relatedLan .trans-container a {
+  text-decoration: none;
+  margin-left: 10px;
+}
+.word-def-youdao .pm {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  width: 70px;
+  border: 1px solid #8cbbdd;
+  background: white;
+}
+.word-def-youdao .pm a {
+  display: block;
+  padding: 4px 3px;
+  text-decoration: none;
+  zoom: 1;
+}
+.word-def-youdao #langSelection {
+  width: 77px;
+  border: 1px solid #bfbfc8;
+}
+.word-def-youdao #langSelection a {
+  padding: 1px 3px 1px 7px;
+  color: #000;
+  font-size: 12px;
+}
+.word-def-youdao #langSelection a:hover {
+  color: #000;
+  background: #f5f5f5;
+}
+.word-def-youdao #langSelection .current {
+  color: #000;
+  background: #f5f5f5;
+}
+.word-def-youdao #handWrite {
+  width: 346px;
+  height: 216px;
+  border: 1px solid #bfbfc8;
+}
+.word-def-youdao #editwordform {
+  position: absolute;
+  top: 222px;
+  left: 50%;
+  padding: 0 2px 2px;
+  z-index: 3;
+  font-size: 12px;
+  background: #5db3dd;
+  display: none;
+  margin-left: -340px;
+}
+.word-def-youdao #editwordform h3 {
+  line-height: 26px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  padding-left: 3px;
+  margin: 0;
+}
+.word-def-youdao #editwordform form {
+  background: #fff;
+  border: #74abc6 solid 1px;
+  padding: 8px;
+}
+.word-def-youdao #editwordform #wordbook-word {
+  width: 150px;
+  display: inline;
+  vertical-align: middle;
+}
+.word-def-youdao #editwordform #wordbook-phonetic {
+  font-family: "lucida sans unicode",arial,sans-serif;
+}
+.word-def-youdao #editwordform #delword {
+  margin-left: 5px;
+  vertical-align: middle;
+  line-height: 20px;
+}
+.word-def-youdao #editwordform label {
+  display: block;
+  line-height: 24px;
+}
+.word-def-youdao #editwordform input {
+  width: 260px;
+  display: block;
+  height: 18px;
+}
+.word-def-youdao #editwordform select {
+  width: 150px;
+}
+.word-def-youdao #editwordform #wordbook-desc {
+  width: 260px;
+  height: 50px;
+  font-size: 12px;
+  display: block;
+}
+.word-def-youdao #editwordform #addword, .word-def-youdao #editwordform #openwordbook {
+  width: 82px;
+  height: 30px;
+  display: inline-block;
+  color: #fff;
+  line-height: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.word-def-youdao #editwordform #addword {
+  background: #a7c36c;
+  margin: 10px 0 5px 0;
+}
+.word-def-youdao #editwordform #openwordbook {
+  background: #95cbe5;
+  margin: 10px 30px 5px 0;
+}
+.word-def-youdao #editwordform #close-editwordform {
+  position: absolute;
+  background-position: -235px -32px;
+  right: 3px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
   display: inline-block;
 }
-.worddefinition-detailed-popup-raquo-down {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
+.word-def-youdao #editwordform #close-editwordform:hover {
+  background-position: -267px -32px;
+}
+.word-def-youdao #editwordform #tag-select-list {
+  width: 262px;
+  border: 1px solid #ccc;
+  display: none;
+  position: absolute;
+  background: #e3eff8;
+  _left: 10px;
+  #left: 10px;
+  padding: 0;
+}
+.word-def-youdao #editwordform #tag-select-list li {
+  display: block;
+  width: 100%;
+}
+.word-def-youdao .error-note strong {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.word-def-youdao #fanyiToggle .additional {
+  font-size: 12px;
+}
+.word-def-youdao #research, .word-def-youdao #research21 {
+  position: absolute;
+  top: 6px;
+  right: 35px;
+  text-decoration: none;
+  padding-left: 18px;
+  background: url(research.png) 3px 3px no-repeat;
+  height: 18px;
+  line-height: 18px;
+  font-size: 12px;
+}
+.word-def-youdao #researchZoon, .word-def-youdao #researchZoon21 {
+  width: 250px;
+  height: 261px;
+  border: 2px solid #5db3dd;
+}
+.word-def-youdao #researchZoon .title, .word-def-youdao #researchZoon21 .title {
+  height: 26px;
+  line-height: 26px;
+  background-color: #5db3dd;
+  color: #fff;
+  font-weight: bold;
+  padding-left: 3px;
+}
+.word-def-youdao #researchZoon .zoo-content, .word-def-youdao #researchZoon21 .zoo-content {
+  font-size: 12px;
+  padding: 12px 0 0 7px;
+}
+.word-def-youdao #researchZoon a, .word-def-youdao #researchZoon21 a {
+  padding: 0;
+  margin: 0;
+}
+.word-def-youdao #researchZoon .zoo-content p, .word-def-youdao #researchZoon21 .zoo-content p {
+  margin: 0 0 12px 12px;
+  height: 18px;
+  line-height: 18px;
+}
+.word-def-youdao #researchZoon .zoo-content p input, .word-def-youdao #researchZoon21 .zoo-content p input {
+  margin-right: 6px;
+}
+.word-def-youdao #researchZoon .submitResult, .word-def-youdao #researchZoon21 .submitResult {
+  margin: 14px auto 0 auto;
+  width: 82px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  background-color: #a7c36c;
+  display: block;
+}
+.word-def-youdao #researchZoon label, .word-def-youdao #researchZoon21 label {
+  cursor: pointer;
+}
+.word-def-youdao #researchZoon a, .word-def-youdao #researchZoon21 a {
+  display: inline;
+}
+.word-def-youdao .baav {
+  margin-top: 3px;
+}
+.word-def-youdao #pronounce {
+  width: 284px;
+  position: absolute;
+  left: 10px;
+  line-height: 1.5em;
+  z-index: 3;
+  display: none;
+}
+.word-def-youdao .pr-source {
+  text-align: right;
+  color: #999;
+  margin: 6px 0;
+}
+.word-def-youdao #pronounce .pr-content {
+  padding: 12px 12px 0 12px;
+  margin: 2px;
+  border: 1px solid #7bbeef;
+  background-color: #fff;
+  _border-width: 2px;
+}
+.word-def-youdao .keyword {
+  vertical-align: bottom;
+  margin-right: 15px;
+}
+.word-def-youdao #pronounce .alpha-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  *left: 0;
+  background-color: #7bbeef;
+  opacity: .3;
+  filter: Alpha(opacity=30);
+  _width: 0;
+}
+.word-def-youdao .pronounce {
+  margin-right: 30px;
+  font-size: 14px;
+  color: #666;
   display: inline-block;
+  line-height: 26px;
+}
+.word-def-youdao .pronounce .phonetic {
+  margin-left: .2em;
+}
+.word-def-youdao .phonetic {
+  font-family: "lucida sans unicode",arial,sans-serif;
+}
+.word-def-youdao .t1 #chromeBox {
+  height: 45px;
+  line-height: 45px;
+  background: url("t1-bg.png") repeat-x;
+  border-bottom: 1px solid #cccdce;
+}
+.word-def-youdao .t1 .chromeWrap {
+  width: 960px;
+  margin: 0 auto;
+  color: #6d6e6d;
+  font-size: 12px;
+}
+.word-def-youdao .t1 #chromeBox .tips {
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+}
+.word-def-youdao .t1 .chromeWrap .chromeExploreTip {
+  font-weight: bold;
+  margin-right: 5px;
+}
+.word-def-youdao .t1 .chromeWrap .toUse {
+  margin-left: 10px;
+  background: url("for-chrome.png") no-repeat 0 8px;
+  display: inline-block;
+  width: 141px;
+  height: 45px;
+  text-indent: -9999px;
+}
+.word-def-youdao .t1 .chromeWrap .no-remind {
+  display: inline-block;
+  float: right;
+  width: 13px;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  background: url("for-chrome.png") no-repeat -143px 18px;
+  cursor: pointer;
+}
+.word-def-youdao .dropHeight1 #custheme {
+  top: 46px;
+}
+.word-def-youdao .dropHeight0 #custheme {
+  top: 33px;
+}
+.word-def-youdao .t0 #chromeBox {
+  height: 32px;
+  line-height: 32px;
+  background: #ffffe1;
+  border-bottom: 1px solid #aca899;
+}
+.word-def-youdao .t0 .chromeWrap {
+  width: 960px;
+  margin: 0 auto;
+  color: #000;
+  font-size: 12px;
+}
+.word-def-youdao .t0 .chromeWrap a:link, .word-def-youdao .t0 .chromeWrap a:visited {
+  color: #046f9c;
+  outline: 0;
+  text-decoration: none;
+}
+.word-def-youdao .t0 .chromeWrap .chromeExploreTip {
+  color: #aaaa96;
+  display: inline-block;
+  padding-left: 19px;
+  margin-right: 5px;
+  background: url("for-chrome.png") no-repeat -143px -18px;
+}
+.word-def-youdao .t0 .chromeWrap .no-remind {
+  float: right;
+  margin-top: 6px;
+  display: inline-block;
+  width: 16px;
+  padding-top: 16px;
+  height: 0;
+  overflow: hidden;
+  background: url("for-chrome.png") no-repeat -158px 0;
+  cursor: pointer;
+  zoom: 1;
+}
+.word-def-youdao .c-topbar {
+  height: 27px;
+  line-height: 27px;
+  color: #333;
+  font-size: 12px;
+}
+.word-def-youdao .c-subtopbar {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+  zoom: 1;
+  z-index: 3;
+}
+.word-def-youdao .c-topbar a {
+  color: #333 !important;
+  text-decoration: none;
+}
+.word-def-youdao .c-snav {
+  float: left;
+  color: #ddd;
+}
+.word-def-youdao .c-snav a, .word-def-youdao .c-snav b {
+  width: 36px;
+  text-align: center;
+  display: inline-block;
+}
+.word-def-youdao .c-snav a:hover, .word-def-youdao .c-snav b {
+  text-decoration: none;
+  border-top: 1px solid #d22e45;
+}
+.word-def-youdao .c-snav b {
+  color: #000;
+  font-weight: bold;
+}
+.word-def-youdao .c-snav .nav-more {
+  width: 38px;
+  line-height: 26px;
+}
+.word-def-youdao .c-snav .ne163:hover {
+  border: 0;
+  text-decoration: underline;
+}
+.word-def-youdao .c-sust {
+  float: right;
+  margin: 0 10px 0 0;
+  display: inline;
+  position: relative;
+}
+.word-def-youdao .c-sust a:hover {
+  text-decoration: underline;
+}
+.word-def-youdao .c-sust .c-sp {
+  margin: 0 10px;
+  color: #ddd;
+}
+.word-def-youdao .c-sust .ac {
+  position: relative;
+  z-index: 99;
+}
+.word-def-youdao .c-sust .ac .ai {
+  font-size: 9px;
+}
+.word-def-youdao .c-sust .dm {
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 138px;
+  text-align: left;
+  line-height: 26px;
+  background-color: #fff;
+  border: 1px solid #bfbfc8;
+}
+.word-def-youdao .c-sust .dm a {
+  display: block;
+  padding: 0 0 0 8px;
+}
+.word-def-youdao #uname {
+  font-weight: bold;
+  color: #626262;
+  cursor: pointer;
+  position: relative;
+  padding: 0 5px 0 5px;
+}
+.word-def-youdao #uname u {
+  height: 21px;
+  vertical-align: top;
+}
+.word-def-youdao #unameop {
+  border: 1px solid #dcdddd;
+  font-size: 13px;
+  background-color: #fff;
+  position: absolute;
+  top: 27px;
+  left: 56px;
+}
+.word-def-youdao #unameop a {
+  color: #2a2a2a;
+  display: block;
+  line-height: 24px;
+  margin: 0;
+  padding: 2px 0 0 9px;
+  text-decoration: none;
+  float: none;
+  font-weight: normal;
+}
+.word-def-youdao #unameop a:hover {
+  background: #f5f5f5;
+  color: #000;
+  text-decoration: none;
+}
+.word-def-youdao .c-header {
+  position: relative;
+  clear: both;
+  height: 64px;
+  width: 960px;
+  margin: 0 auto;
+}
+.word-def-youdao .c-logo {
+  display: inline-block;
+  overflow: hidden;
+  width: 147px;
+  height: 0;
+  padding-top: 37px;
+  vertical-align: top;
+  background: url(../images/logo-result.png) no-repeat;
+  margin: 14px 19px 0 0;
+  float: left;
+  _display: inline;
+}
+.word-def-youdao .s-inpt-w, .word-def-youdao .s-btn-w {
+  background: url(../images/pic.gif) no-repeat;
+}
+.word-def-youdao .c-fm-w {
+  position: relative;
+  display: inline-block;
+  margin: 14px 0 0 0;
+  z-index: 2;
+}
+.word-def-youdao .s-inpt-w {
+  display: inline-block;
+  width: 520px;
+  height: 37px;
+  background-position: 0 -67px;
+  vertical-align: top;
+}
+.word-def-youdao .s-inpt {
+  border: 0;
+  background: transparent;
+  width: 400px;
+  width: 397px\9;
+  overflow: hidden;
+  font: 17px arial;
+  margin: 0 37px 0 84px;
+  padding: 7px 0 0 1px;
+  padding: 8px 0 0 4px\9;
+  height: 29px;
+  height: 27px\9;
+  _margin-right: 0;
+  vertical-align: top;
+  outline: 0;
+}
+.word-def-youdao #bs .s-inpt {
+  width: 515px;
+  margin: 0;
+  padding-left: 5px;
+}
+.word-def-youdao .s-btn-w {
+  display: inline-block;
+  height: 37px;
+  width: 88px;
+}
+.word-def-youdao .s-btn-w:hover {
+  background-position: -176px 0;
+}
+.word-def-youdao .s-btn-w:active {
+  background-position: -88px 0;
+}
+.word-def-youdao .s-btn {
+  cursor: pointer;
+  height: 34px;
+  width: 88px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border: 0;
+  background: 0;
+}
+.word-def-youdao .c-fm-ext {
+  font-size: 12px;
+  padding: 0 0 0 10px;
+}
+.word-def-youdao .c-fm-ext a {
+  font-size: 12px;
+  color: #999;
+  text-decoration: none;
+}
+.word-def-youdao .c-fm-ext a:hover {
+  text-decoration: underline;
+}
+.word-def-youdao .header-pic-tg {
+  position: absolute;
+  right: 2px;
+  top: 0;
+  z-index: 0;
+}
+.word-def-youdao .header-pic-tg img {
+  border: 1px solid #fff;
+  font-size: 0;
+}
+.word-def-youdao .c-header-ext .header-pic-tg {
+  right: 0;
+}
+.word-def-youdao .c-header-ext .header-pic-tg img {
+  border: 0;
+}
+.word-def-youdao .c-bsearch {
+  background-color: #f6f6f6;
+  margin: 35px 0 0;
+  padding: 19px 0 0 0;
+  height: 81px;
+  color: #999;
+}
+.word-def-youdao .c-bsearch-box, .word-def-youdao .c-bsearch .fblinks {
+  width: 794px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 166px;
+}
+.word-def-youdao .c-bsearch .c-fm-w {
+  margin: 0;
+}
+.word-def-youdao .c-bsearch a {
+  color: #999;
+  text-decoration: none;
+  font-size: 12px;
+}
+.word-def-youdao .c-bsearch .fblinks {
+  margin: 11px auto 0 auto;
+}
+.word-def-youdao .c-bsearch .fblinks a {
+  color: #666;
+}
+.word-def-youdao .c-bsearch .fblinks a:hover {
+  text-decoration: underline;
+}
+.word-def-youdao #c_footer {
+  margin: 30px 0;
+  font-size: 12px;
+  text-align: center;
+  color: #999;
+}
+.word-def-youdao #c_footer a {
+  color: #999;
+  text-decoration: none;
+}
+.word-def-youdao #c_footer a:hover {
+  text-decoration: underline;
+}
+.word-def-youdao #c_footer .c_fnl {
+  color: #ddd;
+  margin: 0 10px;
+}
+.word-def-youdao #c_footer .c_fcopyright {
+  margin: 10px 0 0;
+}
+.word-def-youdao .langSelector {
+  position: absolute;
+  top: 7px;
+  _top: 12px;
+  left: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #656565;
+}
+.word-def-youdao .aca {
+  background: url(../images/pic.gif) no-repeat -313px 0;
+  display: inline-block;
+  padding-top: 14px;
+  height: 0;
+  width: 14px;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.word-def-youdao .aca_btn_on {
+  background-position: -341px 0;
+}
+.word-def-youdao .aca_btn_hover {
+  background-position: -327px 0;
+}
+.word-def-youdao .hand-write {
+  background: url(../images/pic.gif) no-repeat -356px 0;
+  display: inline-block;
+  padding-top: 16px;
+  height: 0;
+  width: 16px;
+  overflow: hidden;
+  position: absolute;
+  top: 10px;
+  left: 494px;
+  cursor: pointer;
+}
+.word-def-youdao .hnw_btn_hover {
+  background-position: -375px 0;
+}
+.word-def-youdao .hnw_btn_on {
+  background-position: -394px 0;
+}
+.word-def-youdao .sw {
+  font-size: 1em;
+  border: 1px solid #bfbfc8;
+}
+.word-def-youdao .sw table {
+  background: #fff;
+  border-collapse: collapse;
+}
+.word-def-youdao .remindtt75, .word-def-youdao .jstxlan {
+  padding: 3px;
+}
+.word-def-youdao .remindtt752 {
+  padding: .2em;
+  color: #808080;
+  font-size: .95em;
+}
+.word-def-youdao .jstxlan {
+  color: #656565;
+  font-size: 12px;
+  cursor: pointer;
+}
+.word-def-youdao .jstxhuitiaoyou {
+  background: #f5f5f5;
+  font-size: 0;
+  display: none;
+}
+.word-def-youdao .aa_highlight {
+  color: #000;
+  background: #f5f5f5;
+}
+.word-def-youdao #custheme {
+  background: url(skin.png) no-repeat;
+  height: 93px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.word-def-youdao a {
+  text-decoration: none !important;
+}
+.word-def-youdao .collinsMajorTrans {
+  width: auto !important;
+  margin-left: -10px !important;
+  margin-right: -5px !important;
+}
+.word-def-youdao .exampleLists {
+  margin: 5px 0px !important;
+}
+.word-def-youdao div.title span {
+  cursor: default !important;
 }
