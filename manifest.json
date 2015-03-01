@@ -1,13 +1,15 @@
 {
+	"manifest_version": 2,
+	"name": "Word Definition",
+	"version": "1.1",
+	"description": "Get detailed definition in both English and Chinese for any selected word on a webpage.",
+	"icons": { "128": "img/icon128.png" },
 	"background": {
 		"scripts": ["jquery.js", "pref.js", "bg.js"]
 	},
 	"browser_action": {
-		"default_icon": {
-			"19": "img/icon19.png",
-			"38": "img/icon38.png"
-		},
-		"default_title": "Word Definition"
+		"default_title": "Word Definition",
+		"default_icon": { "19": "img/icon19.png" }
 	},
 	"content_scripts": [
 		{
@@ -17,14 +19,5 @@
 			"all_frames": true
 		}
 	],
-	"description": "Get detailed definition in both English and Chinese for any selected word on a webpage.",
-	"icons": {
-		"128": "img/icon128.png",
-		"16": "img/icon16.png",
-		"48": "img/icon48.png"
-		},
-	"manifest_version": 2,
-	"name": "Word Definition",
-	"permissions": ["<all_urls>", "chrome://favicon/", "tabs"],
-	"version": "1.0"
+	"permissions": ["<all_urls>", "chrome://favicon/", "tabs"]
 }
