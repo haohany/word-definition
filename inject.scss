@@ -4,8 +4,6 @@
 	line-height: 1.4 !important;
 	color: black;
 	text-align: left;
-	width: auto;
-	height: auto;
 }
 .word-def-popup {
 	@include reset;
@@ -46,6 +44,9 @@
 			border-left: $tw - $bw solid transparent;
 			content: '';
 		}
+	}
+	.word-def-container {
+		overflow: auto;
 	}
 }
 

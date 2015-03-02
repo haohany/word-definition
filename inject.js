@@ -17,8 +17,10 @@ document.addEventListener("mouseup", function(e) {
 	inPopup = false;
 
 	var selection = window.getSelection();
+
 	if (selection.rangeCount > 0) {
-		getDefinition(selection.getRangeAt(0).cloneRange());
+		getDefinition(selection.getRangeAt(0));
+		// getDefinition(selection.getRangeAt(0).cloneRange());
 	}
 });
 
@@ -70,14 +72,18 @@ function getDefinition(range) {
 
 function showDefinition(definition, range) {
 	var $definition = $(definition);
-
 	var popup = createPopup();
-	$(popup).addClass($definition.attr("data-word-def-class"));
 	$(popup).append($definition);
 
 	var offset = getRangeOffset(range);
 	popup.style.top = offset.top + "px";
 	popup.style.left = offset.left + "px";
+
+	var height = $(window).height() - (offset.top - window.scrollY) - 10;
+	if (height < 400) {
+		height = 400;
+	}
+	$definition.css("max-height", height + "px");
 
 	document.body.appendChild(popup);
 
@@ -92,12 +98,17 @@ function createPopup() {
 	tip.setAttribute("class", "word-def-popup-tip");
 	popup.appendChild(tip);
 
-	popup.onmouseenter = function() {
-		this.classList.remove("word-def-fade");
-	};
+	// popup.onmouseenter = function() {
+	// 	this.classList.remove("word-def-fade");
+	// };
 
-	popup.onmouseleave = function() {
-		$(this).addClass("word-def-fade");
+	// popup.onmouseleave = function() {
+	// 	$(this).addClass("word-def-fade");
+	// };
+
+	popup.onmousedown = function() {
+		// remove current selection
+		window.getSelection().removeAllRanges();
 	};
 
 	popup.onmouseup = function() {

@@ -4,8 +4,6 @@
   line-height: 1.4 !important;
   color: black;
   text-align: left;
-  width: auto;
-  height: auto;
   position: absolute;
   z-index: 10000;
   width: 360px;
@@ -21,8 +19,6 @@
   line-height: 1.4 !important;
   color: black;
   text-align: left;
-  width: auto;
-  height: auto;
 }
 .word-def-popup .word-def-popup-tip {
   position: absolute;
@@ -46,6 +42,9 @@
   border-right: 6px solid transparent;
   border-left: 6px solid transparent;
   content: '';
+}
+.word-def-popup .word-def-container {
+  overflow: auto;
 }
 
 .word-def-fade {

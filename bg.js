@@ -52,7 +52,6 @@ function getDefinition(doc) {
 
 function youdaoDefinition(doc) {
 	$result = $(doc).find("#collinsResult");
-	$result.attr("data-word-def-class", "word-def-youdao");
 
 	// remove stars and ranks
 	$result.find(".star").remove();
@@ -75,5 +74,11 @@ function youdaoDefinition(doc) {
 	// remove "例："
 	$result.find(".exampleLists .collinsOrder").remove();
 
-	return $result[0] && $result[0].outerHTML;
+	if ($result[0]) {
+		var $container = $("<div/>");
+		$container.addClass("word-def-container");
+		$container.addClass("word-def-youdao");
+		$container.append($result);
+		return $container[0].outerHTML;
+	}
 }

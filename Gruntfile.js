@@ -50,6 +50,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('dist', ['clean', 'sass', 'jshint']);
+	grunt.registerTask('all', ['clean', 'sass', 'jshint']);
 
 };

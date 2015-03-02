@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Word Definition",
-	"version": "1.1",
+	"version": "1.2",
 	"description": "Get detailed definition in both English and Chinese for any selected word on a webpage.",
 	"icons": { "128": "img/icon128.png" },
 	"background": {
